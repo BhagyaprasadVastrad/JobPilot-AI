@@ -1,21 +1,18 @@
-from services.greenhouse import GreenhouseProvider
+from services.job_collector import JobCollector
 
 
 class SearchAgent:
 
     def __init__(self):
-
-        self.provider = GreenhouseProvider()
+        self.collector = JobCollector()
 
     def start(self):
 
-        jobs = self.provider.search_jobs()
+        jobs = self.collector.collect_jobs()
 
-        print()
-
+        print("\n==============================")
         print(f"Found {len(jobs)} jobs")
-
-        print()
+        print("==============================\n")
 
         for job in jobs:
             print(job)
